@@ -53,4 +53,63 @@ function aleatoire() {
 
 
 let bouton = document.getElementsByTagName('input')[0];
-bouton.addEventListener('click', aleatoire)
+bouton.addEventListener('click', aleatoire);
+
+
+//correction 
+
+//exo1
+let div  = Array.from(document.querySelector('#content').children);
+
+let log = (el) => {
+    console.log(el);
+};
+
+div.forEach(element => {
+    element.addEventListener('click', function() {log(element)});
+});
+
+//exo2
+
+div_exo2 = document.querySelector('#content');
+
+div_exo2.addEventListener('dblclick', (e) => {
+    e.target.innerText = e.target.innerText.toUpperCase();
+})
+
+//exo2 Dorian
+
+// let upper = (el) => {
+//     el.style.textTransform = "uppercase";
+// }
+
+// div.forEach(element => {
+//     element.addEventListener('dblclick', function () {
+//         upper(element)
+//     })
+// })
+
+
+//exo3
+
+let border1 = "1px solid gold;";
+let backgroundColor1 = "background-color:blue;";
+let backgroundColor2 = "background-color:red;";
+let border2 = "border:5px dotted gold;";
+
+let tableau = [border1, border2, backgroundColor1, backgroundColor2];
+
+let btn = document.querySelector('input');
+
+let numRandom;
+
+let tabRandom = tableau[numRandom];
+
+function f (random, tableau) {
+    random = Math.round(Math.random()+(tableau.length-1));
+    Array.from(div_exo2.children).forEach(element => {
+        element.style.cssText = tableau[random];
+    });
+};
+
+btn.addEventListener('click', function () {f(numRandom,tableau)});
